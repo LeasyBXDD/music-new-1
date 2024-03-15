@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  font-family: '宋体', '楷体', monospace;
+  margin: 1em;
+  text-align: center;
+  --ink: #2B2B2B;
+  --paper: #FFD700;
+  --cinnabar: #c40b11;
+  --yellow: #F5F5DC;
+  --green: #bde43c;
+
+  font-size: 14px;
+  color: var(--cinnabar);
+  position: relative;
+}
+
+h1 {
+  font-family: '隶书', '楷书', serif;
+  font-weight: normal;
+  font-size: 60px;
+  color: var(--ink);
+  margin: 0;
+}
+
+h2,
+h3 {
+  font-family: '隶书', '楷书', serif;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+footer {
+  text-align: center;
+  padding: 14px;
+  margin: 24px auto;
+  border-top: 4px solid var(--paper);
+  max-width: 500px;
+}
+
+a:link,
+a:visited {
+  font-weight: bold;
+  color: var(--ink);
+}
+
+.container {
+  text-align: center;
+  line-height: 1;
+  letter-spacing: 0px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Thank you Glitch for these styles!! */
+.glitcheroni {
+  font-family: '宋体', serif;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  border: solid var(--ink) 2px;
+  color: var(--ink);
+  border-radius: 5px;
+  background: var(--paper);
+  /* box-shadow: 4px 4px 0 var(--ink); */
+}
+
+.dialog {
+  font-family: '宋体', serif;
+  font-weight: 100;
+  background: var(--paper);
+  padding: 24px;
+  z-index: 10;
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  width: 100%;
+  max-width: 800px;
+  transform: translateX(-50%);
+  border: 1px solid var(--ink);
+  /* box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.dialog>p>b {
+  background: var(--yellow);
+  padding: 3px;
+  border-radius: 3px;
+}
+
+/***********************
+ * Action buttons
+ ***********************/
+.controls {
+  cursor: pointer;
+  padding: 10px 12px;
+  margin: 4px;
+}
+
+
+[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.controls>input {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  /* box-shadow: none; */
+  padding: 0;
+  margin: 0;
+  margin-left: 4px;
+  width: 60px;
+}
+
+button.controls:hover {
+  background-color: var(--yellow) !important;
+  /* -webkit-box-shadow: 2px 2px 0 var(--cinnabar); */
+  /* box-shadow: 2px 2px 0 var(--cinnabar); */
+}
+
+button.controls.synth {
+  background-color: var(--ink);
+  color: white;
+}
+
+button.controls.drums {
+  background-color: var(--paper);
+}
+
+#btnPlay {
+  background-color: var(--green);
+}
+
+/***********************
+ * Note pixels
+ ***********************/
+button.pixel {
+  display: inline-block;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  appearance: none;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  margin: 2px;
+  font-family: monospace;
+  background: var(--yellow);
+  height: 25px;
+  width: 25px;
+  border: none;
+  border-radius: 5px;
+  padding: 0;
+}
+
+button.pixel:hover {
+  opacity: 0.7;
+}
+
+button.pixel.on.synth {
+  background: var(--ink);
+  /* xbox-shadow: 0 0 5px var(--ink); */
+}
+
+button.pixel.on.drums {
+  background: var(--paper);
+  /* xbox-shadow: 0 0 5px var(--paper); */
+}
+
+button.pixel.ripple.synth {
+  background: var(--ink);
+  opacity: 0.3;
+  /* box-shadow: 0 0 5px var(--ink); */
+}
+
+button.pixel.ripple.drums {
+  background: var(--paper);
+  opacity: 0.3;
+  /* box-shadow: 0 0 5px var(--cinnabar); */
+}
+
+.playing .pixel.on.active {
+  transform: scale(1.5);
+  z-index: 10;
+}
+
+.playing .bar {
+  background: var(--green) !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .glitchButtonElement>img {
+    width: 30px;
+  }
+
+  .glitcheroni {
+    font-size: 10px;
+  }
+
+  button.pixel {
+    height: calc(90vw / 20);
+    width: calc(90vw / 20);
+    margin: 1px;
+    border-radius: 4px;
+  }
+
+  button.controls {
+    padding: 8px;
+    margin: 4px 0;
+  }
+
+  .controls>input {
+    width: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  h3 {
+    font-size: 13px;
+  }
+
+  .glitcheroni {
+    font-size: 8px;
+  }
+
+  button.pixel {
+    height: calc(80vw / 20);
+    width: calc(80vw / 20);
+  }
+}
